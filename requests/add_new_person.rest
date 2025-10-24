@@ -5,3 +5,28 @@ Content-Type: application/json
     "name" : "Albert Alan",
     "number" : "85-23230421"
 }
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "number" : "85-23230421"
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name" : "Albert Alan"
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name" : "Arto Hellas",
+    "number" : "85-23230421"
+}
