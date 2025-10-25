@@ -3,7 +3,9 @@ const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
-app.use(morgan('tiny'))
+
+morgan.token('body', (req) => req.method === 'POST' ? JSON.stringify(req.body) : '')
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 const PORT = 3001
 
@@ -58,14 +60,12 @@ app.get('/api/persons/:id', (req, res) => {
 
 app.delete('/api/persons/:id', (req, res) => {
     const id = Number(req.params.id)
-    console.log(id)
     persons = persons.filter(person => person.id !== id)
     res.status(204).end()
 })
 
 app.post('/api/persons', (req, res) => {
     const body = req.body
-    console.log('body',body)
    const range = 1000000
     const newPerson = {
         id : Math.floor(Math.random() * range),
