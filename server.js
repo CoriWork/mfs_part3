@@ -66,7 +66,7 @@ app.delete('/api/persons/:id', (req, res) => {
 
 app.post('/api/persons', (req, res) => {
     const body = req.body
-   const range = 1000000
+    const range = 1000000
     const newPerson = {
         id : Math.floor(Math.random() * range),
         name : body.name,
