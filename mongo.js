@@ -14,7 +14,6 @@ mongoose.connect(url)
 })
 
 const personSchema = mongoose.Schema({
-    id: Number,
     name: String,
     number: String
 })
@@ -43,11 +42,7 @@ if (process.argv.length === 2) {
 const name = process.argv[2]
 const number = process.argv[3]
 
-const generateId = () => {
-    return Math.floor(Math.random() * 10000000)
-}
 const person = new Person({
-    id: generateId(),
     name: name,
     number: number
 })
